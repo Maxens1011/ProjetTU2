@@ -5,16 +5,27 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
 {
     public class Fight
     {
-        public Fight(Character character1, Character character2)
+        public Fight(Character character1, Character character2, RandomGeneratorType generatorType = RandomGeneratorType.RealGenerator)
         {
             if (character1 is null || character2 is null)
             {
                 throw new ArgumentNullException();
             }
+            switch (generatorType)
+            {
+                case RandomGeneratorType.FakeGenerator:
+                    RandomGeneratorClass = new FakeGenerator();
+                    break;
+                case RandomGeneratorType.RealGenerator:
+                default:
+                    RandomGeneratorClass = new RandomGenerator();
+                    break;
+            }
             Character1 = character1;
             Character2 = character2;
         }
 
+        private IRandomGenerator RandomGeneratorClass { get; set; }
         public Character Character1 { get; }
         public Character Character2 { get; }
 
@@ -32,17 +43,29 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         {
             if (Character1.Speed < Character2.Speed)
             {
-                
+                Character1.ReceiveAttack(skillFromCharacter2, Character2);
+                Character2.ReceiveAttack(skillFromCharacter1, Character1);
             }
-            else if (Character2.Speed > Character1.Speed)
+            else if (Character1.Speed > Character2.Speed)
             {
-
+                Character2.ReceiveAttack(skillFromCharacter1, Character1);
+                Character1.ReceiveAttack(skillFromCharacter2, Character2);
             }
             else
             {
-                //Random
+                if (RandomGeneratorClass.Next()%2 == 0)
+                {
+                    Character1.ReceiveAttack(skillFromCharacter2, Character2);
+                    Character2.ReceiveAttack(skillFromCharacter1, Character1);
+                }
+                else
+                {
+                    Character2.ReceiveAttack(skillFromCharacter1, Character1);
+                    Character1.ReceiveAttack(skillFromCharacter2, Character2);
+                }
             }
-        }
+            //Appliquer les statuts sur les pokemons
 
+        }
     }
 }

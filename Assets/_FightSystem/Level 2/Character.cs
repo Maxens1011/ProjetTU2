@@ -131,7 +131,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         {
             if (!attacker.IsAlive) return;
             if (attacker.CurrentStatus is not null ? !attacker.CurrentStatus.CanAttack : false) return;
-            CurrentHealth -= Math.Min(CurrentHealth, Math.Max(0, s.Power - Defense));
+            CurrentHealth -= (int)Math.Min(CurrentHealth, Math.Max(0, s.Power - Defense) * TypeResolver.GetFactor(attacker.BaseType,BaseType));
             if (attacker.CurrentStatus is not null)
             {
                 attacker.CurrentHealth -= (int)(attacker.CurrentStatus.DamageOnAttack * (s.Power - Defense));

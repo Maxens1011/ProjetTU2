@@ -4,7 +4,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
     /// <summary>
     /// Enum des status de chaque attaque (voir plus bas)
     /// </summary>
-    public enum StatusPotential { NONE, SLEEP, BURN, CRAZY }
+    public enum StatusPotential { NONE = 0, SLEEP = 1, BURN = 2, CRAZY = 4 }
     
     public class StatusEffect
     {
@@ -28,6 +28,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
                     return null;
             }
         }
+
 
         /// <summary>
         /// Un Status ne peut etre crée que par une classe enfant (voir plus bas)

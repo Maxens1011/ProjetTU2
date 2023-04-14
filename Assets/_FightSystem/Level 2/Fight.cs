@@ -64,8 +64,8 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
                     Character1.ReceiveAttack(skillFromCharacter2, Character2);
                 }
             }
-            //Appliquer les statuts sur les pokemons
-
+            Character1.ApplyStatus();
+            Character2.ApplyStatus();
         }
     }
 }

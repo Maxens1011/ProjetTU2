@@ -28,6 +28,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
                     return null;
             }
         }
+
         /// <summary>
         /// Un Status ne peut etre crée que par une classe enfant (voir plus bas)
         /// </summary>
@@ -47,14 +48,17 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// Nombre de tour de l'effet
         /// </summary>
         public int RemainingTurn { get; protected set; }
+
         /// <summary>
         /// Nombre de dégât à la fin de chaque tour
         /// </summary>
         public int DamageEachTurn { get; protected set; }
+
         /// <summary>
         /// Le personnage peut-il attaquer ?
         /// </summary>
         public bool CanAttack { get; protected set; }
+
         /// <summary>
         /// Portion de l'attaque auto-infligé au moment de l'attaque( 1f:100%, 0.5f:50% etc
         /// </summary>
@@ -77,6 +81,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
     {
         public SleepStatus() : base(5, 0, false, 0f)
         {
+
         }
     }
 
@@ -87,6 +92,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
     {
         public BurnStatus() : base(5, 10, true, 0f)
         {
+
         }
     }
 
@@ -97,6 +103,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
     {
         public CrazyStatus() : base(1, 0, false, 0.3f)
         {
+
         }
     }
 

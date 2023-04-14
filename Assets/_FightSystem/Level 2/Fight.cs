@@ -7,6 +7,10 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
     {
         public Fight(Character character1, Character character2)
         {
+            if (character1 is null || character2 is null)
+            {
+                throw new ArgumentNullException();
+            }
             Character1 = character1;
             Character2 = character2;
         }
@@ -24,10 +28,20 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// </summary>
         /// <param name="skillFromCharacter1">L'attaque selectionné par le joueur 1</param>
         /// <param name="skillFromCharacter2">L'attaque selectionné par le joueur 2</param>
-        /// <exception cref="ArgumentNullException">si une des deux attaques est null</exception>
         public void ExecuteTurn(Skill skillFromCharacter1, Skill skillFromCharacter2)
         {
-            throw new NotImplementedException();
+            if (Character1.Speed < Character2.Speed)
+            {
+                
+            }
+            else if (Character2.Speed > Character1.Speed)
+            {
+
+            }
+            else
+            {
+                //Random
+            }
         }
 
     }

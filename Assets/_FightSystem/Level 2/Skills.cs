@@ -15,6 +15,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
     {
         public Punch() : base(TYPE.NORMAL, 70, StatusPotential.NONE) { }
     }
+
     /// <summary>
     /// Boule de feu qui ajoute le statut BURN
     /// </summary>
@@ -22,6 +23,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
     {
         public FireBall() : base(TYPE.FIRE, 50, StatusPotential.BURN) { }
     }
+
     /// <summary>
     /// Attaque eau basique
     /// </summary>
@@ -29,6 +31,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
     {
         public WaterBlouBlou() : base(TYPE.WATER, 20, StatusPotential.NONE) { }
     }
+
     /// <summary>
     /// Attaque plante qui inflige le statut SLEEP
     /// </summary>

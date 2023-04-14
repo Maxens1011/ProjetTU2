@@ -134,7 +134,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         public void ReceiveAttack(Skill s, Character attacker)
         {
             if (!attacker.IsAlive || !attacker.CurrentStatus.CanAttack) return;
-            CurrentHealth =- s.Power - Defense;
+            CurrentHealth =- (s.Power + (int)(attacker.Attack / 10) - Defense);
             attacker.CurrentHealth -= (int)(attacker.CurrentStatus.DamageOnAttack * (s.Power - Defense));
             if (CurrentStatus == null && s.Status != StatusPotential.NONE)
                 CurrentStatus = StatusEffect.GetNewStatusEffect(s.Status);

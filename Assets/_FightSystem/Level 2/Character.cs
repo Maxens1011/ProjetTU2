@@ -61,10 +61,6 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
                 }
                 return _baseHealth + CurrentEquipment.BonusHealth;
             }
-            set
-            { 
-            
-            }
         }
 
         /// <summary>
@@ -158,6 +154,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         {
             CurrentEquipment = null;
         }
+        
         
         /// <summary>
         /// Apply the status effect on the character at the end of the turn

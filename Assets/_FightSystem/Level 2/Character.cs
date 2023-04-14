@@ -112,9 +112,11 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// <param name="s">skill attaquant</param>
         public void ReceiveAttack(Skill s, Character attacker)
         {
-            int DamageTaken;
-            DamageTaken = (int)((0.4f * 2 * attacker.Attack * s.Power) / Defense);
-            CurrentHealth -= DamageTaken;
+            if (!attacker.IsAlive) return;
+            CurrentHealth =- s.Power - Defense;
+            if (CurrentStatus == null && s.Status != StatusPotential.NONE)
+                CurrentStatus = StatusEffect.GetNewStatusEffect(s.Status);
+
         }
         /// <summary>
         /// Equipe un objet au personnage

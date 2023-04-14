@@ -143,10 +143,8 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// <exception cref="ArgumentNullException">Si equipement est null</exception>
         public void Equip(Equipment newEquipment)
         {
-            if (CurrentEquipment is null) throw  new ArgumentNullException();
+            if (newEquipment is null) throw  new ArgumentNullException();
             CurrentEquipment = newEquipment;
-            MaxHealth += newEquipment.BonusHealth;
-            CurrentHealth += newEquipment.BonusHealth;
         }
 
         /// <summary>
@@ -154,7 +152,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// </summary>
         public void Unequip()
         {
-            throw new NotImplementedException();
+            CurrentEquipment = null;
         }
         
         

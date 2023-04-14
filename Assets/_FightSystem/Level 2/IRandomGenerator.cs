@@ -9,8 +9,22 @@ public interface IRandomGenerator
 
 public class RandomGenerator : IRandomGenerator
 {
-    int IRandomGenerator.Next()
-    {
-        return UnityEngine.Random.Range(0, 101);
-    }
+    public RandomGenerator() { }
+
+    int IRandomGenerator.Next() => UnityEngine.Random.Range(0, 100);
+}
+
+public class FakeGenerator : IRandomGenerator
+{
+    int _incrementValue;
+
+    public FakeGenerator() => _incrementValue = 0;
+
+    public int Next() => _incrementValue = (_incrementValue + 1) % 100;
+}
+
+public enum RandomGeneratorType
+{
+    RealGenerator,
+    FakeGenerator
 }

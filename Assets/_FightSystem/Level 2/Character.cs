@@ -112,12 +112,13 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// <param name="s">skill attaquant</param>
         public void ReceiveAttack(Skill s, Character attacker)
         {
-            if (!attacker.IsAlive) return;
+            if (!attacker.IsAlive || !attacker.CurrentStatus.CanAttack) return;
             CurrentHealth =- s.Power - Defense;
+            attacker.CurrentHealth -= (int)(attacker.CurrentStatus.DamageOnAttack * (s.Power - Defense));
             if (CurrentStatus == null && s.Status != StatusPotential.NONE)
                 CurrentStatus = StatusEffect.GetNewStatusEffect(s.Status);
-
         }
+
         /// <summary>
         /// Equipe un objet au personnage
         /// </summary>
@@ -127,6 +128,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         {
             throw new NotImplementedException();
         }
+
         /// <summary>
         /// Desequipe l'objet en cours au personnage
         /// </summary>
@@ -134,6 +136,15 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         {
             throw new NotImplementedException();
         }
-
+        
+        /// <summary>
+        /// Apply the status effect on the character at the end of the turn
+        /// </summary>
+        public void ApplyStatus()
+        {
+            if (CurrentStatus is null || !IsAlive) return;
+            CurrentHealth -= CurrentStatus.DamageEachTurn;
+            if (CurrentStatus.EndTurn()) CurrentStatus = null;
+        }
     }
 }

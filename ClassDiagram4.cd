@@ -1,41 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="_2023_GC_A2_Partiel_POO.Level_1.MyArray" Collapsed="true">
-    <Position X="9.75" Y="1.5" Width="1.5" />
+    <Position X="7.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAEAAAAAAAgAAA=</HashCode>
       <FileName>Assets\_FightSystem\Level 1\MyArray.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_2023_GC_A2_Partiel_POO.Level_1.MyMath" Collapsed="true">
-    <Position X="11.5" Y="1.5" Width="1.5" />
+    <Position X="9" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAAgAgABAAAAQAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Assets\_FightSystem\Level 1\MyMath.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="_2023_GC_A2_Partiel_POO.Level_1.MyString" Collapsed="true">
-    <Position X="13.25" Y="1.5" Width="1.5" />
+    <Position X="10.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAEAAAAAAIAAAA=</HashCode>
       <FileName>Assets\_FightSystem\Level 1\MyString.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="_2023_GC_A2_Partiel_POO.Level_2.Character" Collapsed="true">
+  <Class Name="_2023_GC_A2_Partiel_POO.Level_2.Character">
     <Position X="9.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQwAAAAAAAAAGAABAIAiAAQBAIAAAAAoAAAAAoAAAAA=</HashCode>
       <FileName>Assets\_FightSystem\Level 2\Character.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="_2023_GC_A2_Partiel_POO.Level_2.Equipment" Collapsed="true">
+  <Class Name="_2023_GC_A2_Partiel_POO.Level_2.Equipment">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAIAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAA=</HashCode>
       <FileName>Assets\_FightSystem\Level 2\Equipment.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="_2023_GC_A2_Partiel_POO.Level_2.Fight" Collapsed="true">
+  <Class Name="_2023_GC_A2_Partiel_POO.Level_2.Fight">
     <Position X="13.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BgAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAA=</HashCode>
@@ -106,40 +106,25 @@
     </TypeIdentifier>
   </Class>
   <Class Name="_2023_GC_A2_Partiel_POO.Level_2.TypeResolver" Collapsed="true">
-    <Position X="11.5" Y="2.5" Width="1.5" />
+    <Position X="7.25" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
       <FileName>Assets\_FightSystem\Level 2\TypeResolver.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RandomGenerator" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\_FightSystem\Level 2\IRandomGenerator.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Interface Name="IRandomGenerator" Collapsed="true">
-    <Position X="9.75" Y="3.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\_FightSystem\Level 2\IRandomGenerator.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Enum Name="_2023_GC_A2_Partiel_POO.Level_2.StatusPotential" Collapsed="true">
-    <Position X="9.75" Y="4.75" Width="1.5" />
+    <Position X="7.25" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAIAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>Assets\_FightSystem\Level 2\StatusEffect.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="_2023_GC_A2_Partiel_POO.Level_2.TYPE" Collapsed="true">
-    <Position X="11.5" Y="4.75" Width="1.5" />
+    <Position X="9" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACgAAAAAAAAACAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
       <FileName>Assets\_FightSystem\Level 2\TypeResolver.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Font Name="Segoe UI" Size="9" />
+  <Font Name="Segoe UI" Size="9.16" />
 </ClassDiagram>

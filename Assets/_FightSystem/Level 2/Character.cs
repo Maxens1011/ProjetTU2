@@ -171,5 +171,42 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
             CurrentHealth -= CurrentStatus.DamageEachTurn;
             if (CurrentStatus.EndTurn()) CurrentStatus = null;
         }
+
+        public void ApplyHeal(HealObject heal)
+        {
+            if (heal is null) throw new ArgumentNullException();
+            CurrentHealth = Math.Min(CurrentHealth + heal.HealAmount , MaxHealth);
+            if (CurrentStatus != null)
+            {
+                if (heal.HealingType == HealingType.All)
+                {
+                    CurrentStatus = null;
+                    return;
+                }
+                switch (CurrentStatus)
+                {
+                    case BurnStatus:
+                        if (heal.HealingType == HealingType.BURN)
+                        {
+                            CurrentStatus = null;
+                        }
+                        break;
+                    case CrazyStatus:
+                        if (heal.HealingType == HealingType.CRAZY)
+                        {
+                            CurrentStatus = null;
+                        }
+                        break;
+                    case SleepStatus:
+                        if (heal.HealingType == HealingType.SLEEP)
+                        {
+                            CurrentStatus = null;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }

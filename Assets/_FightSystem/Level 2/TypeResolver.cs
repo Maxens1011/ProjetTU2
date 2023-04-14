@@ -27,7 +27,6 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// </returns>
         public static float GetFactor(TYPE attacker, TYPE receiver)
         {
-            if (attacker == TYPE.NORMAL || receiver == TYPE.NORMAL || attacker == receiver) return 1f;
             switch (attacker)
             {
                 case TYPE.WATER:

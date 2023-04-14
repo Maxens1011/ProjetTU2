@@ -39,29 +39,49 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// </summary>
         /// <param name="skillFromCharacter1">L'attaque selectionné par le joueur 1</param>
         /// <param name="skillFromCharacter2">L'attaque selectionné par le joueur 2</param>
-        public void ExecuteTurn(Skill skillFromCharacter1, Skill skillFromCharacter2)
+        public void ExecuteTurn(Skill skillFromCharacter1, Skill skillFromCharacter2, HealObject healObjectFromCharacter1= null, HealObject healObjectFromCharacter2 = null)
         {
-            if (Character1.Speed < Character2.Speed)
+            if (healObjectFromCharacter1 != null)
             {
-                Character1.ReceiveAttack(skillFromCharacter2, Character2);
-                Character2.ReceiveAttack(skillFromCharacter1, Character1);
+                Character1.ApplyHeal(healObjectFromCharacter1);
+                if (healObjectFromCharacter2 != null)
+                {
+                    Character2.ApplyHeal(healObjectFromCharacter2);
+                }
+                else
+                {
+                    Character1.ReceiveAttack(skillFromCharacter2, Character2);
+                }
             }
-            else if (Character1.Speed > Character2.Speed)
+            else if (healObjectFromCharacter2 != null)
             {
+                Character2.ApplyHeal(healObjectFromCharacter2);
                 Character2.ReceiveAttack(skillFromCharacter1, Character1);
-                Character1.ReceiveAttack(skillFromCharacter2, Character2);
             }
             else
             {
-                if (RandomGeneratorClass.Next()%2 == 0)
+                if (Character1.Speed < Character2.Speed)
                 {
                     Character1.ReceiveAttack(skillFromCharacter2, Character2);
                     Character2.ReceiveAttack(skillFromCharacter1, Character1);
                 }
-                else
+                else if (Character1.Speed > Character2.Speed)
                 {
                     Character2.ReceiveAttack(skillFromCharacter1, Character1);
                     Character1.ReceiveAttack(skillFromCharacter2, Character2);
+                }
+                else
+                {
+                    if (RandomGeneratorClass.Next()%2 == 0)
+                    {
+                        Character1.ReceiveAttack(skillFromCharacter2, Character2);
+                        Character2.ReceiveAttack(skillFromCharacter1, Character1);
+                    }
+                    else
+                    {
+                        Character2.ReceiveAttack(skillFromCharacter1, Character1);
+                        Character1.ReceiveAttack(skillFromCharacter2, Character2);
+                    }
                 }
             }
             Character1.ApplyStatus();

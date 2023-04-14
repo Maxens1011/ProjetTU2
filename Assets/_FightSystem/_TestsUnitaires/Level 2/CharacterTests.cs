@@ -154,6 +154,11 @@ namespace _2023_GC_A2_Partiel_POO.Tests.Level_2
             {
                 Fight f = new Fight(null, mewtwo);
             });
+
+            Assert.Throws<ArgumentNullException>(() =>
+            {
+                Fight f = new Fight(null, null);
+            });
         }
 
         [Test]

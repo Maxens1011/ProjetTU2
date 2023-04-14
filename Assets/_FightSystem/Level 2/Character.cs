@@ -131,7 +131,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         {
             if (!attacker.IsAlive) return;
             if (attacker.CurrentStatus is not null ? !attacker.CurrentStatus.CanAttack : false) return;
-            CurrentHealth -= Math.Min(CurrentHealth, Math.Max(0, s.Power - Defense));
+            CurrentHealth -= (int)Math.Min(CurrentHealth, Math.Max(0, s.Power - Defense) * TypeResolver.GetFactor(attacker.BaseType,BaseType));
             if (attacker.CurrentStatus is not null)
             {
                 attacker.CurrentHealth -= (int)(attacker.CurrentStatus.DamageOnAttack * (s.Power - Defense));
@@ -170,6 +170,43 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
             if (CurrentStatus is null || !IsAlive) return;
             CurrentHealth -= CurrentStatus.DamageEachTurn;
             if (CurrentStatus.EndTurn()) CurrentStatus = null;
+        }
+
+        public void ApplyHeal(HealObject heal)
+        {
+            if (heal is null) throw new ArgumentNullException();
+            CurrentHealth = Math.Min(CurrentHealth + heal.HealAmount , MaxHealth);
+            if (CurrentStatus != null)
+            {
+                if (heal.HealingType == HealingType.All)
+                {
+                    CurrentStatus = null;
+                    return;
+                }
+                switch (CurrentStatus)
+                {
+                    case BurnStatus:
+                        if (heal.HealingType == HealingType.BURN)
+                        {
+                            CurrentStatus = null;
+                        }
+                        break;
+                    case CrazyStatus:
+                        if (heal.HealingType == HealingType.CRAZY)
+                        {
+                            CurrentStatus = null;
+                        }
+                        break;
+                    case SleepStatus:
+                        if (heal.HealingType == HealingType.SLEEP)
+                        {
+                            CurrentStatus = null;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }

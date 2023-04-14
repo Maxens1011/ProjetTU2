@@ -20,18 +20,25 @@ namespace _2023_GC_A2_Partiel_POO.Tests.Level_2
         // - Cumuler les force/faiblesses en ajoutant un type pour l'équipement qui rendrait plus sensible/résistant à un type
 
 
-
         [Test]
-        public void CreateFightBothNullCheck()
+
+        public void CharacterReceiveTypeAffectedSkill()
         {
-            Character pikachu = new Character(100, 50, 30, 20, TYPE.NORMAL);
-            Character mewtwo = new Character(1000, 500, 300, 200, TYPE.NORMAL);
+            var poussifeu = new Character(100, 50, 20, 60, TYPE.FIRE);
+            var fb = new FireBall();
+            var arcko = new Character(100, 40, 10, 70, TYPE.GRASS);
+            var mg = new MagicalGrass();
+            var oldHealth = poussifeu.CurrentHealth;
 
-            Assert.Throws<ArgumentNullException>(() =>
-            {
-                Fight f = new Fight(null, null);
-            });
+            arcko.ReceiveAttack(fb, poussifeu); // hp : 100 => 52
+            Assert.That(arcko.CurrentHealth, Is.EqualTo(52));
+            Assert.True(arcko.CurrentStatus is BurnStatus);
+            Assert.That(arcko.IsAlive, Is.EqualTo(true));
+
+            poussifeu.ReceiveAttack(mg, arcko); // hp : 100 => 
+            Assert.That(poussifeu.CurrentHealth, Is.EqualTo(60));
+            Assert.True(poussifeu.CurrentStatus is SleepStatus);
+            Assert.That(poussifeu.IsAlive, Is.EqualTo(true));
         }
-
     }
-}
+    }

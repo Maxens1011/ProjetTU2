@@ -27,14 +27,20 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// Type de base
         /// </summary>
         TYPE _baseType;
+        /// <summary>
+        /// Niveau du pokemon
+        /// </summary>
+        int _level;
 
-        public Character(int baseHealth, int baseAttack, int baseDefense, int baseSpeed, TYPE baseType)
+        public Character(int baseHealth, int baseAttack, int baseDefense, int baseSpeed, TYPE baseType, int level = 1)
         {
             _baseHealth = baseHealth;
             _baseAttack = baseAttack;
             _baseDefense = baseDefense;
             _baseSpeed = baseSpeed;
             _baseType = baseType;
+            _level = level;
+
         }
         /// <summary>
         /// HP actuel du personnage
@@ -48,9 +54,10 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         {
             get
             {
-                throw new NotImplementedException();
+                return _baseHealth + CurrentEquipment.BonusHealth;
             }
         }
+
         /// <summary>
         /// ATK, prendre en compte base et equipement potentiel
         /// </summary>
@@ -58,9 +65,10 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         {
             get
             {
-                throw new NotImplementedException();
+                return _baseAttack + CurrentEquipment.BonusAttack;
             }
         }
+
         /// <summary>
         /// DEF, prendre en compte base et equipement potentiel
         /// </summary>
@@ -68,9 +76,10 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         {
             get
             {
-                throw new NotImplementedException();
+                return _baseDefense + CurrentEquipment.BonusDefense;
             }
         }
+
         /// <summary>
         /// SPE, prendre en compte base et equipement potentiel
         /// </summary>
@@ -78,19 +87,21 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         {
             get
             {
-                throw new NotImplementedException();
+                return _baseSpeed + CurrentEquipment.BonusSpeed;
             }
         }
+
         /// <summary>
         /// Equipement unique du personnage
         /// </summary>
         public Equipment CurrentEquipment { get; private set; }
+
         /// <summary>
         /// null si pas de status
         /// </summary>
         public StatusEffect CurrentStatus { get; private set; }
 
-        public bool IsAlive => throw new NotImplementedException();
+        public bool IsAlive => CurrentHealth <= 0;
 
 
         /// <summary>
@@ -99,10 +110,11 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// Vous pouvez adapter au besoin
         /// </summary>
         /// <param name="s">skill attaquant</param>
-        /// <exception cref="NotImplementedException"></exception>
-        public void ReceiveAttack(Skill s)
+        public void ReceiveAttack(Skill s, Character attacker)
         {
-            throw new NotImplementedException();
+            int DamageTaken;
+            DamageTaken = (int)((0.4f * 2 * attacker.Attack * s.Power) / Defense);
+            CurrentHealth -= DamageTaken;
         }
         /// <summary>
         /// Equipe un objet au personnage

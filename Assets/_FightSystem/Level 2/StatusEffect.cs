@@ -68,9 +68,10 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// Méthode enclenché par le système de combat à la fin de chaque tour
         /// Vous pouvez ajouter du contenu si besoin
         /// </summary>
-        public virtual void EndTurn()
+        public virtual bool EndTurn()
         {
             RemainingTurn--;
+            return RemainingTurn <= 0;
         }
     }
 

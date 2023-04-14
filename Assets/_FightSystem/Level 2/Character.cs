@@ -61,10 +61,6 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
                 }
                 return _baseHealth + CurrentEquipment.BonusHealth;
             }
-            set
-            { 
-            
-            }
         }
 
         /// <summary>
@@ -133,10 +129,14 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// <param name="s">skill attaquant</param>
         public void ReceiveAttack(Skill s, Character attacker)
         {
-            if (!attacker.IsAlive || !attacker.CurrentStatus.CanAttack) return;
-            CurrentHealth =- s.Power - Defense;
-            attacker.CurrentHealth -= (int)(attacker.CurrentStatus.DamageOnAttack * (s.Power - Defense));
-            if (CurrentStatus == null && s.Status != StatusPotential.NONE)
+            if (!attacker.IsAlive) return;
+            if (attacker.CurrentStatus is not null ? !attacker.CurrentStatus.CanAttack : false) return;
+            CurrentHealth -= Math.Min(CurrentHealth, Math.Max(0, s.Power - Defense));
+            if (attacker.CurrentStatus is not null)
+            {
+                attacker.CurrentHealth -= (int)(attacker.CurrentStatus.DamageOnAttack * (s.Power - Defense));
+            }
+            if (CurrentStatus is null && s.Status != StatusPotential.NONE)
                 CurrentStatus = StatusEffect.GetNewStatusEffect(s.Status);
         }
 
@@ -147,10 +147,11 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// <exception cref="ArgumentNullException">Si equipement est null</exception>
         public void Equip(Equipment newEquipment)
         {
-            if (CurrentEquipment is null) throw  new ArgumentNullException();
+            if (newEquipment is null)
+            {
+                throw new ArgumentNullException();
+            }
             CurrentEquipment = newEquipment;
-            MaxHealth += newEquipment.BonusHealth;
-            CurrentHealth += newEquipment.BonusHealth;
         }
 
         /// <summary>
@@ -158,7 +159,7 @@ namespace _2023_GC_A2_Partiel_POO.Level_2
         /// </summary>
         public void Unequip()
         {
-            throw new NotImplementedException();
+            CurrentEquipment = null;
         }
         
         /// <summary>
